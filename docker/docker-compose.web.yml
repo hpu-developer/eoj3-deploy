@@ -30,6 +30,7 @@ services:
       - 'media:/eoj3/media'
       - 'upload:/eoj3/upload'
       - 'generate:/eoj3/generate'
+      - 'templates:/eoj3/templates'
     entrypoint: uwsgi --socket :3031 --wsgi-file eoj3/wsgi.py --master --processes 4 --threads 2
   qcluster:
     image: eoj3
@@ -64,6 +65,8 @@ services:
       MYSQL_USER: eoj
       MYSQL_PASSWORD: eoj
       MYSQL_DATABASE: eoj
+    ports:
+      - "3306:3306"
     volumes:
       - 'db:/var/lib/mysql'
       - './mysql.cnf:/etc/mysql/conf.d/custom.cnf'
@@ -93,11 +96,62 @@ services:
       - ./lsyncd.local.conf:/root/lsyncd.conf
 volumes:
   db:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /usr/local/eoj/db
   repo:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /usr/local/eoj/repo
   data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /usr/local/eoj/data
   spj:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /usr/local/eoj/spj
   media:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /usr/local/eoj/media
   upload:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /usr/local/eoj/upload
   generate:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /usr/local/eoj/generate
   judge_log:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /usr/local/eoj/judge_log
   static:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /usr/local/eoj/static
+  templates:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /usr/local/eoj/templates

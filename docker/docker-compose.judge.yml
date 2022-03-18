@@ -30,6 +30,26 @@ services:
 
 volumes:
   data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /usr/local/eoj/data
   spj:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /usr/local/eoj/spj
   judge_log:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /usr/local/eoj/judge_log
   keys:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /usr/local/eoj/keys
