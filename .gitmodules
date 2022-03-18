@@ -1,0 +1,3 @@
+[submodule "eoj3"]
+	path = eoj3
+	url = git@eoj:hpu-developer/eoj3.git
