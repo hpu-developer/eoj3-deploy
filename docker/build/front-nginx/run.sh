@@ -19,8 +19,9 @@ subjectAltName = @alt_names
 [alt_names]
 DNS.1=*.hpuoj.com
 DNS.2=localhost
-DNS.3=cn-hn-dx-1.natfrp.cloud
-DNS.4=cn-hn-dx-2.natfrp.cloud
+DNS.3=hpuoj.vaiwan.com
+DNS.4=cn-hn-dx-1.natfrp.cloud
+DNS.5=cn-hn-dx-2.natfrp.cloud
 IP.1=10.14.19.3
 IP.2=127.0.0.1
 IP.3=219.150.218.20
