@@ -3,3 +3,4 @@ docker/ejudge.local.env
 docker/id_rsa
 docker/id_rsa.pub
 docker/lsyncd.local.conf
+docker/build/front-nginx/certs

@@ -50,6 +50,7 @@ services:
       context: "./build/front-nginx"
     ports:
       - "80:80"
+      - "443:443"
       - "8080:8080"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
