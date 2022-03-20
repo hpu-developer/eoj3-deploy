@@ -3,7 +3,7 @@
 ## Reference
 
 + <https://github.com/ultmaster/eoj3>
-+ <https://github.com/ultmaster/eoj3-depoly>
++ <https://github.com/ultmaster/eoj3-deploy>
 
 ## How to Use
 
