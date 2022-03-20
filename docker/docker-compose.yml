@@ -51,7 +51,6 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "8080:8080"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - 'media:/var/www/fake/media'
@@ -67,7 +66,7 @@ services:
       MYSQL_PASSWORD: eoj
       MYSQL_DATABASE: eoj
     ports:
-      - "3306:3306"
+      - "3306"
     volumes:
       - 'db:/var/lib/mysql'
       - './mysql.cnf:/etc/mysql/conf.d/custom.cnf'
