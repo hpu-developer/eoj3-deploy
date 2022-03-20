@@ -1,7 +1,14 @@
 version: '3'
 
 services:
+  build:
+    build:
+      context: "../eoj3"
+      dockerfile: "Dockerfile"
+    image: "eoj3"
   migration:
+    depends_on:
+      - build
     image: eoj3
     env_file:
       - 'eoj3.local.env'
@@ -17,6 +24,8 @@ services:
   #     - 'eoj3.local.env'
   #   entrypoint: python3 manage.py runscript add_judge
   web:
+    depends_on:
+      - build
     image: eoj3
     restart: unless-stopped
     env_file:
@@ -33,6 +42,8 @@ services:
       - 'templates:/eoj3/templates'
     entrypoint: uwsgi --socket :3031 --wsgi-file eoj3/wsgi.py --master --processes 4 --threads 2
   qcluster:
+    depends_on:
+      - build
     image: eoj3
     restart: unless-stopped
     volumes:
