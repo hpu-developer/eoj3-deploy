@@ -11,11 +11,11 @@ services:
       - bash
       - "-c"
       - "python3 manage.py migrate && rm -rf /var/share/* && cp -r /eoj3/static/* /var/share/"
-  add_judge:
-    image: eoj3
-    env_file:
-      - 'eoj3.local.env'
-    entrypoint: python3 manage.py runscript add_judge
+  # add_judge:
+  #   image: eoj3
+  #   env_file:
+  #     - 'eoj3.local.env'
+  #   entrypoint: python3 manage.py runscript add_judge
   web:
     image: eoj3
     restart: unless-stopped
@@ -65,8 +65,6 @@ services:
       MYSQL_USER: eoj
       MYSQL_PASSWORD: eoj
       MYSQL_DATABASE: eoj
-    ports:
-      - "3306"
     volumes:
       - 'db:/var/lib/mysql'
       - './mysql.cnf:/etc/mysql/conf.d/custom.cnf'
@@ -86,14 +84,14 @@ services:
       - data:/ejudge/run/data:ro
       - spj:/ejudge/run/spj
       - judge_log:/ejudge/run/log
-  sync:
-    image: registry.cn-shanghai.aliyuncs.com/ultmaster/ejudge-sync:latest
-    restart: unless-stopped
-    volumes:
-      - data:/sync/data:ro
-      - spj:/sync/spj:ro
-      - ./id_rsa:/root/id_rsa
-      - ./lsyncd.local.conf:/root/lsyncd.conf
+  # sync:
+  #   image: registry.cn-shanghai.aliyuncs.com/ultmaster/ejudge-sync:latest
+  #   restart: unless-stopped
+  #   volumes:
+  #     - data:/sync/data:ro
+  #     - spj:/sync/spj:ro
+  #     - ./id_rsa:/root/id_rsa
+  #     - ./lsyncd.local.conf:/root/lsyncd.conf
 volumes:
   db:
     driver: local
