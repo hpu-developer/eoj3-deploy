@@ -2,8 +2,8 @@
 
 ## Reference
 
-+ <https://github.com/ultmaster/eoj3>
-+ <https://github.com/ultmaster/eoj3-deploy>
++ <https://github.com/F0RE1GNERS/eoj3>
++ <https://github.com/F0RE1GNERS/eoj3-deploy>
 
 ## How to Use
 
