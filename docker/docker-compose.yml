@@ -39,7 +39,6 @@ services:
       - 'media:/eoj3/media'
       - 'upload:/eoj3/upload'
       - 'generate:/eoj3/generate'
-      - 'templates:/eoj3/templates'
     entrypoint: uwsgi --socket :3031 --wsgi-file eoj3/wsgi.py --master --processes 4 --threads 2
   qcluster:
     depends_on:
@@ -158,9 +157,3 @@ volumes:
       o: bind
       type: none
       device: /usr/local/eoj/static
-  templates:
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: /usr/local/eoj/templates
